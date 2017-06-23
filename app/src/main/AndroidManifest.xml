@@ -2,14 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.medzone.arouterdemo">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".ARouterApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".ARouterApplication">
+        android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +22,18 @@
         <activity android:name=".AActivity" />
         <activity android:name=".BActivity" />
         <activity android:name=".CActivity" />
+        <activity android:name=".SchemaFilterActivity">
+            <intent-filter>
+                <data
+                    android:host="dev.mcloudlife.com"
+                    android:scheme="http" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ImgActivity" />
     </application>
 
 </manifest>

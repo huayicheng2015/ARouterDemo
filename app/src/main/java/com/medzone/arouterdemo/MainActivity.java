@@ -1,5 +1,7 @@
 package com.medzone.arouterdemo;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnA;
     private Button btnB;
     private Button btnC;
+    private Button btn2Baidu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +24,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnA = (Button) findViewById(R.id.btn_activity_a);
         btnB = (Button) findViewById(R.id.btn_activity_b);
         btnC = (Button) findViewById(R.id.btn_activity_c);
+        btn2Baidu = (Button) findViewById(R.id.btn_to_baidu);
         btnA.setOnClickListener(this);
         btnB.setOnClickListener(this);
         btnC.setOnClickListener(this);
+        btn2Baidu.setOnClickListener(this);
     }
 
     @Override
@@ -37,6 +42,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_activity_c:
                 ARouter.getInstance().build("/arouterdemo/CActivity").navigation();
+                break;
+            case R.id.btn_to_baidu:
+                Uri uri = new Uri.Builder()
+                        .scheme("http")
+                        .authority("dev.mcloudlife.com")
+                        .path("/img/chat/gm_bp_1.png")
+                        .query("time=1451275894")
+                        .build();
+                Intent it = new Intent(this, SchemaFilterActivity.class);
+                it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                it.setData(uri);
+                startActivity(it);
                 break;
             default:
                 break;
