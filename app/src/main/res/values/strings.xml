@@ -5,4 +5,5 @@
     <string name="c_activity">Activity C</string>
     <string name="url_to_baidu">http://dev.mcloudlife.com/img/chat/gm_bp_1.png?time=1451275894</string>
     <string name="img_content_desc">img</string>
+    <string name="test_hello_service">Test Hello Service</string>
 </resources>
